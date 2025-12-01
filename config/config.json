@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "ekyc-approval-prince-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/ekycApprovalPrince/EkycApprovalPrinceWebPart.js",
+          "manifest": "./src/webparts/ekycApprovalPrince/EkycApprovalPrinceWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "EkycApprovalPrinceWebPartStrings": "lib/webparts/ekycApprovalPrince/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "ekyc-approval-prince-client-side-solution",
+    "id": "87f31013-e832-4585-9ed0-fc55dda4c5bd",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.21.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "EKYCApprovalPrince description"
+      },
+      "longDescription": {
+        "default": "EKYCApprovalPrince description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "ekyc-approval-prince Feature",
+        "description": "The feature that activates elements of the ekyc-approval-prince solution.",
+        "id": "c3bfb0b3-bf3c-45ec-8b23-5591a81b85f9",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/ekyc-approval-prince.sppkg"
+  }
+}
