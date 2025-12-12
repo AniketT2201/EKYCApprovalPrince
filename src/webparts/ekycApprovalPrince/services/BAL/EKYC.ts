@@ -101,10 +101,21 @@ export default function DashboardOps(): IDashboardOps {
         }
     };
 
-    const normalizeDate = (value?: string | Date | null): string | null => {
-        if (!value || value === "") return null;
-        return new Date(value).toISOString();
+    const formatDisplayDateTime = (value?: string | Date | null): string => {
+        if (!value) return "";
+        const d = new Date(value);
+        if (isNaN(d.getTime())) return "";
+        return d.toLocaleString("en-IN", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true
+        });
     };
+
+
 
     const getDashboardItemById = async (listName: string ,id: number, props: IEkycApprovalPrinceProps): Promise<IEKYC> => {
         try {
@@ -112,8 +123,8 @@ export default function DashboardOps(): IDashboardOps {
             const item = await spCrudOpsInstance.getItemData(
             listName,
             id,
-            "*,Id,Created,Modified,ApprovedBy,CustomerID,defaultValue,Name,PhoneNo,StateHead/Id,StateHead/Title,StateHead/EMail,EmployeeCode,FirmName,Email,MobileNo,ApprovedBy,PipingSystem,NantionalHeadName,ZoneHeadName,StateHeadName,AttachmentFiles,SecurityCode",
-            "AttachmentFiles, StateHead",
+            "*,Id,Created,Modified,Author/Id,Author/Title,Author/EMail,Editor/Id,Editor/Title,Editor/EMail,ApprovedBy,CustomerID,defaultValue,Name,PhoneNo,StateHead/Id,StateHead/Title,StateHead/EMail,EmployeeCode,FirmName,Email,MobileNo,ApprovedBy,PipingSystem,NantionalHeadName,ZoneHeadName,StateHeadName,AttachmentFiles,SecurityCode",
+            "AttachmentFiles, StateHead, Author, Editor",
             props
             );
 
@@ -137,6 +148,10 @@ export default function DashboardOps(): IDashboardOps {
             Name: item.Name,
             PhoneNo: item.PhoneNo,
             StateHead: item.StateHead?.EMail,
+            Created: formatDisplayDateTime(item.Created),
+            Modified: formatDisplayDateTime(item.Modified),
+            Author: item.Author?.Title,
+            Editor: item.Editor?.Title
             };
         } catch (error) {
             console.error("Error fetching item by ID:", error.message);

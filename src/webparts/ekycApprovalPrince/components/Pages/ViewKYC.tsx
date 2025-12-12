@@ -295,7 +295,12 @@ export const ViewKYC: React.FunctionComponent<IEkycApprovalPrinceProps> = (props
 		const { ID, itemID } = getUrlVars();
 		setSecurityNo(ID);
 		setItemId(itemID);
-	     const _apiUrl = "https://uat.princepipes.com:567/api/CustomerKYC/getCustomerKYCDetails";
+	  // UAT url
+	  //const _apiUrl = "https://uat.princepipes.com:567/api/CustomerKYC/getCustomerKYCDetails";
+
+    // Production url
+    const _apiUrl = "https://travelservices.princepipes.com/imonwebapi-new/api/CustomerKYC/getCustomerKYCDetails";
+
 
 		const requestBody = {
 			ActionID: "2",
@@ -475,7 +480,11 @@ export const ViewKYC: React.FunctionComponent<IEkycApprovalPrinceProps> = (props
     const handlePinCodeBlur = async () => {
 
       const pinCode = kycData["Post Code"];
-      const _apiUrl = `https://uat.princepipes.com:446/wsVendorDetails.asmx/getPinCode?PinCode=${pinCode}`;
+      // UAT url
+      //const _apiUrl = `https://uat.princepipes.com:446/wsVendorDetails.asmx/getPinCode?PinCode=${pinCode}`;
+      // Production url
+      const _apiUrl = `https://travelservices.princepipes.com/wsVendorDetails.asmx/getPinCode?PinCode=${pinCode}`;
+
       try {
         // Call the async method to fetch pin code data
         const data = await fetchPinCodeData(_apiUrl); 
@@ -609,7 +618,12 @@ export const ViewKYC: React.FunctionComponent<IEkycApprovalPrinceProps> = (props
         ModifiedBy: '10691',
       };
     
-      const _apiUrl = "https://uat.princepipes.com:567/api/CustomerKYC/updateCustomerKYCDetails";
+      // UAT url
+      //const _apiUrl = "https://uat.princepipes.com:567/api/CustomerKYC/updateCustomerKYCDetails";
+
+      // Production url
+      const _apiUrl = "https://travelservices.princepipes.com/imonwebapi-new/api/CustomerKYC/updateCustomerKYCDetails";
+
     
       try {
         // Using HttpClient to send the POST request
@@ -643,7 +657,12 @@ export const ViewKYC: React.FunctionComponent<IEkycApprovalPrinceProps> = (props
         SecurityNo: securityNo,
       };
     
-      const _apiUrl = "https://uat.princepipes.com:567/api/CustomerKYC/approveCustomerKYCDetails";
+      // UAT url
+      //const _apiUrl = "https://uat.princepipes.com:567/api/CustomerKYC/approveCustomerKYCDetails";
+    
+      // Production url
+      const _apiUrl = "https://travelservices.princepipes.com/imonwebapi-new/api/CustomerKYC/approveCustomerKYCDetails";
+
     
       try {
         // Using HttpClient to send the POST request
@@ -675,7 +694,12 @@ export const ViewKYC: React.FunctionComponent<IEkycApprovalPrinceProps> = (props
         RejectRemark: rejectRemark,
       };
     
-      const _apiUrl = "https://uat.princepipes.com:567/api/CustomerKYC/RejectCustomerKYCDetails";
+      // UAT url
+      //const _apiUrl = "https://uat.princepipes.com:567/api/CustomerKYC/RejectCustomerKYCDetails";
+
+      // Production url
+      const _apiUrl = "https://travelservices.princepipes.com/imonwebapi-new/api/CustomerKYC/RejectCustomerKYCDetails";
+
     
       try {
         // Using HttpClient to send the POST request
@@ -700,7 +724,12 @@ export const ViewKYC: React.FunctionComponent<IEkycApprovalPrinceProps> = (props
         SHPID: itemID,
       };
     
-      const _apiUrl = "https://uat.princepipes.com:567/api/CustomerKYC/updateSHPID";
+      // UAT url
+      //const _apiUrl = "https://uat.princepipes.com:567/api/CustomerKYC/updateSHPID";
+
+      // Production url
+      const _apiUrl = "https://travelservices.princepipes.com/imonwebapi-new/api/CustomerKYC/updateSHPID";
+
     
       try {
         // Using HttpClient to send the POST request
@@ -799,7 +828,12 @@ export const ViewKYC: React.FunctionComponent<IEkycApprovalPrinceProps> = (props
         DepositAmount: kycData["Deposit Amount"],
       });
     
-      const _apiUrl = `https://uat.princepipes.com:446/wscustomerdetails.asmx/updateCustomerDetial?${params.toString()}`;
+      // UAT url
+      //const _apiUrl = `https://uat.princepipes.com:446/wscustomerdetails.asmx/updateCustomerDetial?${params.toString()}`;
+    
+      // Production url
+      const _apiUrl = `https://travelservices.princepipes.com/wscustomerdetails.asmx/updateCustomerDetial?${params.toString()}`;
+
     
       try {
         // Using HttpClient to send the GET request
@@ -1077,7 +1111,7 @@ export const ViewKYC: React.FunctionComponent<IEkycApprovalPrinceProps> = (props
 									</tr>
 									<tr>
 										<td>% Growth</td>
-										<td><input type="text" className="financial-details-table-input" readOnly value={kycData?.Growth || ''} /></td>
+										<td><input type="text" className="financial-details-table-input" readOnly value={kycData?.Growth || '0'} /></td>
 										<td><input type="text" className="financial-details-table-input" readOnly value={kycData?.Growth1 || ''} /></td>
 										<td><input type="text" className="financial-details-table-input" readOnly value={kycData?.Growth2 || ''} /></td>
 									</tr>
@@ -1471,16 +1505,12 @@ export const ViewKYC: React.FunctionComponent<IEkycApprovalPrinceProps> = (props
                     {["Yes", "No"].map(option => (
                     <label key={option} className="flex items-center">
                     <input
-                          type="radio"
-                          name="blankCheque"
-                          value={option}
-                          checked={kycData?.blankCheque === option}
-                          onChange={(e) =>
-                            setKycData((prev: any)  => {
-                              return ({ ...prev, blankCheque: e.target.value });
-                            })
-                          }
-                        />
+                      type="radio"
+                      name="blankCheque"
+                      value={option}
+                      checked={kycData?.Blankcheck === option}
+                      readOnly
+                    />
                     <span className="ml-2">{option}</span>
                     </label>
                     ))}

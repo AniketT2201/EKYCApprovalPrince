@@ -9,7 +9,7 @@ import '../styles.scss';
 import { Link, useLocation, useParams, useHistory  } from 'react-router-dom';
 
 
-export const Attachmentpage: React.FunctionComponent<IEkycApprovalPrinceProps> = (props: IEkycApprovalPrinceProps) => {
+export const DispForm: React.FunctionComponent<IEkycApprovalPrinceProps> = (props: IEkycApprovalPrinceProps) => {
     const [attachmentItemId, setAttachmentItemId] = useState<number | null>(null);
     const [attachments, setAttachments] = useState<{name: string, url: string}[]>([]);
     const [showAttachmentModal, setShowAttachmentModal] = useState(true);
@@ -330,7 +330,7 @@ export const Attachmentpage: React.FunctionComponent<IEkycApprovalPrinceProps> =
               <div className={`popup-card-attachment fade-in ${visible ? 'visible' : ''}`} ref={popupRef} >
                 <div className="attachment-section">
                       <div className="popup-header-attachment">
-                        <h3 className="form-section-title">Attachments</h3>
+                        <h3 className="form-section-title">DispForm</h3>
                         <button className="close-btn" onClick={handleClose}>×</button>
                       </div>
                       <div className="form-group">
@@ -489,6 +489,42 @@ export const Attachmentpage: React.FunctionComponent<IEkycApprovalPrinceProps> =
                                 <input
                                   type="text"
                                   value={formData.ApprovedBy}
+                                  readOnly
+                                />
+                              </div>
+                            </div>
+                            <div className='form-grid-2'>
+                              <div className="form-group">
+                                <label>Created At</label>
+                                <input
+                                  type="text"
+                                  value={formData.Created}
+                                  readOnly
+                                />
+                              </div>
+                              <div className="form-group">
+                                <label>Modified At</label>
+                                <input
+                                  type="text"
+                                  value={formData.Modified}
+                                  readOnly
+                                />
+                              </div>
+                            </div>
+                            <div className='form-grid-2'>
+                              <div className="form-group">
+                                <label>Created By</label>
+                                <input
+                                  type="text"
+                                  value={formData.Author}
+                                  readOnly
+                                />
+                              </div>
+                              <div className="form-group">
+                                <label>Modified By</label>
+                                <input
+                                  type="text"
+                                  value={formData.Editor}
                                   readOnly
                                 />
                               </div>

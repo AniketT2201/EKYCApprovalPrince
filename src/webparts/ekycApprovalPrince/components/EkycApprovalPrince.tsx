@@ -30,8 +30,8 @@ const ViewKYC = React.lazy(() =>
 const Viewpage = React.lazy(() =>
   import('./Pages/Viewpage').then(module => ({ default: module.Viewpage }))
 );
-const Attachmentpage = React.lazy(() =>
-  import('./Pages/Attachmentpage').then(module => ({ default: module.Attachmentpage }))
+const DispForm = React.lazy(() =>
+  import('./Pages/DispForm').then(module => ({ default: module.DispForm }))
 );
 
 export default class EkycApprovalPrince extends React.Component<IEkycApprovalPrinceProps> {
@@ -52,7 +52,7 @@ export default class EkycApprovalPrince extends React.Component<IEkycApprovalPri
               <Switch>
                 <Route exact path="/" render={() => <Homepage {...this.props} />} />
                 <Route exact path="/ViewKYC" render={() => <ViewKYC {...this.props} />} />
-                <Route exact path="/Attachmentpage" render={() => <Attachmentpage {...this.props} />} />
+                <Route exact path="/DispForm" render={() => <DispForm {...this.props} />} />
                 <Route exact path="/Viewpage" render={() => <Viewpage {...this.props} context={this.props.currentSPContext as unknown as ISPFXContext} httpClient={this.props.currentSPContext.httpClient}/>} />
               </Switch>
             </React.Suspense>

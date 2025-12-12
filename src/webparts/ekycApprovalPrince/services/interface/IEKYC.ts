@@ -3,6 +3,10 @@ import { HttpClient } from "@microsoft/sp-http";
 
 export interface IEKYC {
     Id? : any;
+    Author?: any;
+    Editor?: any;
+    Created?: any;
+    Modified?: any;
     Title? : any;
     Name? : any;
     PhoneNo? : any;

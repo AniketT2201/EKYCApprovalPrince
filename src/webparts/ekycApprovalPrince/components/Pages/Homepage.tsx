@@ -155,7 +155,7 @@ const columnsConfig = [
   { 
     header: "Attachment", key: "Attachment", 
     render: (item: IEKYC) => (
-      <Link to={`/Attachmentpage?itemId=${item.Id}`} className="clickable-text">
+      <Link to={`/DispForm?itemId=${item.Id}`} className="clickable-text">
       Attachment
     </Link>
     )
