@@ -5,10 +5,10 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { ISPFXContext } from '@pnp/common';
 import Loader from './Pages/Loader';
-// import { Homepage } from './Pages/Homepage';
-// import { ViewKYC } from './Pages/ViewKYC';
-// import { Viewpage } from './Pages/Viewpage';
-// import { Attachmentpage } from './Pages/Attachmentpage';
+import { Homepage } from './Pages/Homepage';
+import { ViewKYC } from './Pages/ViewKYC';
+import { Viewpage } from './Pages/Viewpage';
+import { DispForm } from './Pages/DispForm';
 import { SPComponentLoader } from '@microsoft/sp-loader';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { useHistory } from 'react-router-dom';
@@ -20,19 +20,19 @@ SPComponentLoader.loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4
 //SPComponentLoader.loadCss('https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css');
 
 
-// 💤 Lazy loaded components
-const Homepage = React.lazy(() =>
-  import('./Pages/Homepage').then(module => ({ default: module.Homepage }))
-);
-const ViewKYC = React.lazy(() =>
-  import('./Pages/ViewKYC').then(module => ({ default: module.ViewKYC }))
-);
-const Viewpage = React.lazy(() =>
-  import('./Pages/Viewpage').then(module => ({ default: module.Viewpage }))
-);
-const DispForm = React.lazy(() =>
-  import('./Pages/DispForm').then(module => ({ default: module.DispForm }))
-);
+// // 💤 Lazy loaded components
+// const Homepage = React.lazy(() =>
+//   import('./Pages/Homepage').then(module => ({ default: module.Homepage }))
+// );
+// const ViewKYC = React.lazy(() =>
+//   import('./Pages/ViewKYC').then(module => ({ default: module.ViewKYC }))
+// );
+// const Viewpage = React.lazy(() =>
+//   import('./Pages/Viewpage').then(module => ({ default: module.Viewpage }))
+// );
+// const DispForm = React.lazy(() =>
+//   import('./Pages/DispForm').then(module => ({ default: module.DispForm }))
+// );
 
 export default class EkycApprovalPrince extends React.Component<IEkycApprovalPrinceProps> {
   public render(): React.ReactElement<IEkycApprovalPrinceProps> {
